@@ -4,7 +4,6 @@ from tastypie import fields
 from webtsaservices.api import v1_api
 from webtsainterface.models import SearchFacet, DataSeriesField
 
-
 class DataSeriesFieldResource(ModelResource):
     field_name = fields.CharField('field_name')
 

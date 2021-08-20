@@ -17,7 +17,7 @@ urlpatterns = [
     #url(r'^' + BASE_URL  + 'select2/', select2.urls),
     
     path('', views.index, name='tsa-application' ),
-    url(r'^' + BASE_URL, include(v1_api.urls)),
+    path('api/', include(v1_api.urls), name="api"),
     url(r'^' + BASE_URL  + '/admin/', admin.site.urls),
     #url(r'^' + BASE_URL  + 'select2/', select2.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
