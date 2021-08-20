@@ -1,16 +1,16 @@
 from django.contrib import admin
 from django import forms
-from select2 import fields as select_fields
+#from django_select2 import fields as select_fields
 
 from webtsainterface.models import SearchFacet, DataSeriesField
 from webtsaservices.models import DataSeries
 
 
 class SearchFacetForm(forms.ModelForm):
-    keyfield = select_fields.ChoiceField(choices=DataSeriesField.fields.get_field_choices(),
-                                         overlay="Choose a field...")
-    namefields = select_fields.MultipleChoiceField(choices=DataSeriesField.fields.get_field_choices(),
-                                                   overlay="Choose the name fields...")
+    keyfield = forms.ChoiceField(choices=DataSeriesField.fields.get_field_choices(),
+                                                initial="Choose a field...")
+    namefields = forms.MultipleChoiceField(choices=DataSeriesField.fields.get_field_choices(),
+                                                initial="Choose the name fields...")
     selected = forms.ChoiceField(required=False)
 
     def get_valid_field(self, name):

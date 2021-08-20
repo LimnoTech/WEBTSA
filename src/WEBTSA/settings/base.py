@@ -19,13 +19,12 @@ try:
 except IOError:
     print("You need to setup the settings data file (see instructions in base.py file.)")
 
-
 SECRET_KEY = data["secret_key"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 TASTYPIE_DEFAULT_FORMATS = ['json']
 
@@ -38,13 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'select2',
+    'django_select2',
     'tastypie',
     'webtsaservices',
     'webtsainterface'
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,7 +57,7 @@ ROOT_URLCONF = 'WEBTSA.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join('./webtsainterface/', "templates/webtsainterface")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

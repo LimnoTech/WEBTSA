@@ -24,7 +24,7 @@ class DataSeriesField(models.Model):
 
 class SearchFacet(models.Model):
     name = models.CharField(max_length=255, primary_key=True)
-    keyfield = models.ForeignKey(DataSeriesField, related_name='key')
+    keyfield = models.ForeignKey(DataSeriesField, related_name='key', on_delete=models.CASCADE)
     namefields = models.ManyToManyField(DataSeriesField, related_name='names')
     selected = models.CharField(max_length=255)
 

@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('name', models.CharField(max_length=255, serialize=False, primary_key=True)),
                 ('selected', models.CharField(max_length=255)),
-                ('keyfield', models.ForeignKey(related_name='key', to='webtsainterface.DataSeriesField')),
+                ('keyfield', models.ForeignKey(related_name='key', to='webtsainterface.DataSeriesField', on_delete=models.CASCADE)),
                 ('namefields', models.ManyToManyField(related_name='names', to='webtsainterface.DataSeriesField')),
             ],
         ),
